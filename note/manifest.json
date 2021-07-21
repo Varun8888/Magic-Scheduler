@@ -1,0 +1,37 @@
+{
+	"name": "NoteMaker",
+	"manifest_version": 2,
+	"version": "1.0.0",
+	"description": "Make Your Notes Here.",
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
+	},
+	"permissions": [
+		"tabs",
+		"file://*/*",
+		"storage"
+	],
+	"background": {
+		"scripts": [
+			"background.js"
+		]
+	},
+	"content_scripts": [
+		{
+			"js": [
+				"js/bootstrap.min.js",
+				"js/jquery-3.3.1.slim.min.js",
+				"js/popper.min.js"
+			],
+			"matches": [
+				"<all_urls>"
+			]
+		}
+	],
+	"externally_connectable": {
+		"matches": ["*://*.example.com/*"]
+	  },
+	  "content_security_policy":"script-src 'self' https://apis.google.com; object-src 'self'"
+	
+}
